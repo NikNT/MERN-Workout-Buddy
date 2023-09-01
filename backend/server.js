@@ -18,6 +18,10 @@ app.use((req, res, next) => {
 
 app.use("/api/workouts", workoutRoutes);
 
+//Listen to PORT
+
+const PORT = process.env.PORT;
+
 const mongoURI = process.env.MONGO_URI;
 mongoose
   .connect(mongoURI)
@@ -27,7 +31,3 @@ mongoose
     });
   })
   .catch((err) => console.err(err));
-
-//Listen to PORT
-
-const PORT = process.env.PORT || 8080;
